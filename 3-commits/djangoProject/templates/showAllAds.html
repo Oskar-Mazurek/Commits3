@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block title %}Wszystkie ogłoszenia{% endblock title %}
+{% block content %}
+    <div class="row" style="margin: 10px;">
+        {% for Ad in AllAds %}
+            <div class="card" style="width: 18rem; margin: 10px; background-color: orange;">
+                <div class="card-body">
+                    <h5 class="card-title" style="font-weight: bolder;">{{ Ad.name }}</h5>
+                    <div style="border-bottom: black solid 1px;
+                    min-width: 288px; margin-left: -33px;"></div>
+                    <h6 class="card-subtitle mb-2 text-muted" style="font-weight: bolder; margin-top: 15px">
+                        Opublikowano: {{ Ad.publicationDate }}
+                        <br>Wygaśnie: {{ Ad.expirationDate }}</h6>
+                    <p id="description" class="card-text"
+                       style="overflow: hidden">{{ Ad.description }}
+                    <table style="min-height: 50px;min-width: 288px;border-top: black solid 1px; border-bottom: black solid 1px; margin-left: -33px">
+                        <tbody>
+                        <tr>
+                            <th scope="row">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cena</th>
+                            <td>{{ Ad.cost }}zł</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

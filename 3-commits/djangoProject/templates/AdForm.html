@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load bootstrap %}
+{% block title %}Dodanie nowego ogłoszenia{% endblock title %}
+{% block content %}
+    <div class="card" style="max-width: 500px; left: 35%; background-color: orange; color: black;
+    border-top-right-radius: 0; border-top-left-radius: 0; font-weight: bolder">
+        <div class="card-header" style="font-weight: bold">Dodanie nowego ogłoszenia</div>
+        <div class="card-body">
+            <form method="post" action="{% url 'addAd' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ formAd|bootstrap }}
+                <div class="btn-group" role="group">
+                    <button type="submit" style="margin-top: 5px; color: black; font-weight: bold;
+                    background-color: orange; border: none" class="btn btn-warning">Zapisz ogłoszenie
+                    </button>
+                    <p class="card-text" style="margin-top: 5px">
+                        <a href="{% url 'showAllAds' %}" class="btn btn-warning" style="color: black;
+                        font-weight: bold; background-color: orange; border: none">Anuluj</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

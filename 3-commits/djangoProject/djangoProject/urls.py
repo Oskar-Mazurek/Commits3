@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from Commits3 import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.showAllAds, name='showAllAds'),
+    path('addAd/', views.addAd, name='addAd'),
 ]
